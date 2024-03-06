@@ -1,0 +1,36 @@
+  {
+  	"Spring": {
+  		"tables": {
+  			"Table 1." :{
+  				"ncols": 9,
+  				"columnnames": [
+  					"Year","Select","Cowlitz","Kalama","Lewis","Sandy","Willamette","Upriver","Total"
+  				],
+  				"columntypes": [
+  					"text","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric"
+  				]
+  			},
+  			"Table 2." :{
+  				"ncols": 13,
+  				"columnnames": [
+  					"Year","Wilamette.Preseason","Wilamette.Actual","Wilamette.Pct","Sandy.Preseason","Sandy.Actual","Sandy.Pct","Cowlitz.Preseason","Cowlitz.Actual","Cowlitz.Pct","Upriver.Preseason","Upriver.Actual","Upriver.Pct"
+  				],
+  				"columntypes": [
+  					"numeric","numeric","numeric","pct","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric"
+  				]
+  			},
+  			"Table 5." :{
+  				"ncols": 15,
+  				"columnnames": [
+  					"Year","Upriver","Downstream.Comm","Downstream.Sport","Downstream.Misc","Downstream.Treaty","Downstream.Total","Bonneville.Count","Treaty.Sport","Winter.Gilnet","Comm.Gilnet","CS_Platform","Zone6.Total","Escapement.Total","Escapement.Pct"
+  				],
+  				"columntypes": [
+  					"text","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","numeric","pct"
+  				]
+  			}			
+  		}
+  	},
+  	"Fall": {
+  	
+  	}
+  }
