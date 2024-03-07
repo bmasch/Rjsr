@@ -1,0 +1,23 @@
+Package: Rjsr
+Title: R Package for Programatic Access to WA/OR Joint Staff Reports
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Brian",
+           family = "Maschhoff",
+           role = c("aut", "cre"),
+           email = "bmasch@gmail.com")
+Maintainer: Brian Maschhoff <bmasch@gmail.com>           
+Description: This package provides programmatic access to tabular data and other information ifn Joint Staff Reports prepared by WDFW and ODFW.
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
+Imports: 
+    pdftools,
+    dplyr,
+    ggplot2,
+    magrittr,
+    stringr
+Depends: 
+    R (>= 2.10)
