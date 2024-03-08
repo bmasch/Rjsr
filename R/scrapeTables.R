@@ -106,19 +106,17 @@ getTable_ <- function(p,title.text="Table 1.",skip=3,ncols=9,minchar=2){
 #' @export
 #' @examples getTable("Spring",titlenum=2)
 #' 
-getTable <- function(report="Spring",tablenum=1,year=NA,name.columns=TRUE,format.columns=TRUE){
-  if(is.na(year)){
+getTable <- function(report=NA,year=NA,tablenum=NA,name.columns=TRUE,format.columns=TRUE){
     table.text <- paste("Table ",tablenum, ".",sep="")
     table.config <- Table.Config[[report]]$tables[[table.text]]
     ncolumns <- table.config$ncols
     columntypes <- table.config$columntypes
-    table <- getTable_(Current.Report[[report]]$text,table.text,ncols=ncolumns)
+    #table <- getTable_(Current.Report[[report]]$text,table.text,ncols=ncolumns)
+    table <- getTable_(getReport(report,year)$text,table.text,ncols=ncolumns)
     if(name.columns==TRUE)names(table$body) <- table.config$columnnames
     if(format.columns==TRUE){
       table$body <- table$body %>% mutate(across(which(table.config$columntypes=="numeric"),unComma))
       table$body <- table$body %>% mutate(across(which(table.config$columntypes=="pct"),unPct))
     }
-    
     return(table)
-  }
 }

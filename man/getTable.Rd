@@ -5,9 +5,9 @@
 \title{Finds a table from the specified report and returns a list}
 \usage{
 getTable(
-  report = "Spring",
-  tablenum = 1,
+  report = NA,
   year = NA,
+  tablenum = NA,
   name.columns = TRUE,
   format.columns = TRUE
 )
@@ -15,9 +15,9 @@ getTable(
 \arguments{
 \item{report}{A string. Currently either Spring or Fall}
 
-\item{tablenum}{An integer identifier for the table (e.g. 1 for Table 1.)}
-
 \item{year}{The year the report was generated. If NA, then current report is used}
+
+\item{tablenum}{An integer identifier for the table (e.g. 1 for Table 1.)}
 
 \item{name.columns}{Boolean.}
 

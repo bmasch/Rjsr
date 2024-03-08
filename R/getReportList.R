@@ -10,11 +10,13 @@ library(rvest)
 #' 
 getReportList <- function(url="https://wdfw.wa.gov/fishing/management/columbia-river/compact/other-information"){
   
+  #ODFW URL: https://www.dfw.state.or.us/fish/oscrp/crm/joint_staff_reports_archive.asp
+  
   html <- read_html(url)
   
   p.elements <- html %>% html_elements("p")
   
-  Reports <- data.frame()
+  reports <- data.frame()
   
   for(i in 1:length(p.elements)){
     p.text <- (html_text(p.elements[i]))
@@ -24,21 +26,21 @@ getReportList <- function(url="https://wdfw.wa.gov/fishing/management/columbia-r
         href <- html_attr(a.element,"href")
         if(substring(href,1,1)=="/")href <- paste0("https://wdfw.wa.gov",href)
         textlines <- p.text %>% strsplit(split="\n")
-        Reports <- rbind(Reports,data.frame(report="Spring",title=textlines[[1]][2],href=href))
+        reports <- rbind(reports,data.frame(report="Spring",title=textlines[[1]][2],href=href))
       }
       if(grepl("all Chinook Salmon",p.text)){
         a.element <- html_elements(p.elements[i],"a")
         href <- html_attr(a.element,"href")
         if(substring(href,1,1)=="/")href <- paste0("https://wdfw.wa.gov",href)
         textlines <- p.text %>% strsplit(split="\n")
-        Reports <- rbind(Reports,data.frame(report="Fall",title=textlines[[1]][2],href=href))
+        reports <- rbind(reports,data.frame(report="Fall",title=textlines[[1]][2],href=href))
       }
     }
   }
   
-  Reports <- Reports %>%
+  reports <- reports %>%
     mutate(year= as.numeric(substring(title,1,4))) %>%
     select(year,report,title,href)
   
-  return(Reports)
+  return(reports)
 }
