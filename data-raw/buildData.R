@@ -7,14 +7,14 @@ library(rvest)
 #set the data-raw folder as working directory, then run code below
 
 spring.filename <- "2024-or-wa-spring-joint-staff-report.pdf"
-fall.filename <- "2023-or-wa-fall-joint-staff-report-final-230710.pdf"
+fall.filename <- "2024-or-wa-fall-joint-staff-report-final.pdf"
 
 spring <- pdf_text(spring.filename) %>% strsplit(split="\n")
 fall <- pdf_text(fall.filename) %>% strsplit(split="\n")
 
 Current.Report <- list()
 Current.Report$Spring <- list(URL=spring.filename,text=spring,year=2024)
-Current.Report$Fall <- list(URL=fall.filename,text=fall,year=2023)
+Current.Report$Fall <- list(URL=fall.filename,text=fall,year=2024)
 
 usethis::use_data(Current.Report, overwrite = TRUE)
 
