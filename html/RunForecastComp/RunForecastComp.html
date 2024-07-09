@@ -1,0 +1,2222 @@
+
+html
+head
+    titleRun Forecast Comparisontitle
+
+    meta charset=UTF-8
+	
+	link rel=stylesheet type=textcss href=scriptdc.jsbootstrap.min.css
+    link rel=stylesheet type=textcss href=scriptdc.jsdc.css
+	script src=scriptjquery-1.12.2.min.jsscript
+	script src=httpsd3js.orgd3.v3.min.js charset=utf-8script
+    script src=httpsmaxcdn.bootstrapcdn.combootstrap3.3.5jsbootstrap.min.jsscript	
+	link rel=stylesheet href=httpscdn.leafletjs.comleaflet-0.7.3leaflet.css 
+	style
+hr{
+    border 0;
+    height 1px;
+    background #333;
+    background-image linear-gradient(to right, #ccc, #333, #ccc);
+}		
+.showdata{
+	stroke #016986;
+}	
+#help{
+	width 1150px;
+}	
+#about{
+	width 1150px;
+}
+.esu_block{
+	background-color #33b4ff;
+}	
+.mpg_block1{
+	background-color #f2f2f2;
+}
+.mpg_block2{
+	background-color #e6e6e6;
+}	
+select{
+	width auto;
+}
+	
+.sized{
+	width 600px;
+	overflow scroll;
+}
+#dataview{
+	height 100px;
+	width 400px;
+	overflow auto;
+	margin-left 50px;
+	margin-bottom 100px;
+}
+#esu_label{
+	text-align center;
+	font 12px sans-serif;
+}	
+.poplabel{
+	margin-left 20px;
+	margin-right 20px;
+	text-align center;
+	font-weight bold;
+}
+#metaheader{
+	height 80px;
+}	
+#metamap{
+	height 500px;
+	top 525px;
+	position relative;
+}
+
+
+#cfilters{
+	position relative;
+}
+
+#metafooter{
+	position relative;
+	top 410px;
+}
+	
+.area {
+  fill url(#temperature-gradient);
+}
+
+.overlay {
+  fill none;
+  pointer-events all;
+}
+
+.curse line {
+  fill none;
+  stroke black;
+  stroke-width 1px
+}
+
+.curse text, line {
+	opacity 0.5;
+}
+
+.line2 {
+  stroke black;
+  stroke-width 4px;
+  fill black;
+}
+	.control {margin5px;}
+	#spawn{
+	  overflow hidden;
+	}
+	#hatch{
+	  overflow hidden;
+	}	
+	#agec{
+	  overflow hidden;
+	}
+	#meta{
+	  overflow hidden;
+	}	
+	#divmap {
+      width500px;
+      height400px;
+	  background-image url(river_background.jpg);
+    }
+	#filters {
+		border-right-style solid;
+		border-width 2px;
+		border-color #cccccc;
+	}
+	
+	g.tick text{
+		cursor pointer;
+	}
+	
+	g.z {
+		font-size 11px;
+	}
+	
+	.map {
+      width600px;
+      height400px;
+    }
+	
+	#obsmap {
+		height 600px;
+		width 800px;
+	}
+	
+	#datarow {
+		height 300px;
+		overflow scroll;
+	}
+	.river path{
+				fill none;
+				stroke #0570b0;
+				stroke-width 2;
+			}
+	.borders path{
+				fill none;
+				stroke black;
+			}
+	#spinner  { 
+		filter none; 
+		-moz-opacity 100%; 
+		position absolute;
+		top 200px;
+		left 650px;
+		}
+		
+div.tooltip {   
+  position absolute;           
+  text-align left;                            
+  padding 2px;             
+  font 16px sans-serif;        
+  background #ccc;   
+  border 0px;      
+  border-radius 8px;           
+  pointer-events none;         
+}
+svg	{ overflow hidden; }
+	
+	table {
+	margin 10px;
+	padding-top 2px;
+    padding-right 10px;
+    padding-bottom 2px;
+    padding-left 10px;
+	}
+	
+.dc-table-label {
+font-weight bold;
+}
+
+.header th {
+text-align center;	
+}
+
+.span14{
+	margin-top 25px;
+}
+
+.tiptable {
+	font 12px sans-serif;
+}
+
+.axis path, .axis line {
+    fill none;
+    shape-rendering crispedges;
+    stroke #000000;
+}
+.grid .tick {
+    stroke grey;
+    opacity 0.5 !important;
+}
+.bar rect {
+        fill #ed1e79;
+    }
+
+    .bar text.value {
+        fill black;
+    }
+    circle {
+    fill none;
+    stroke black; 
+    stroke-width 1;
+}
+
+.legend text{
+	font 12px sans-serif;
+}
+
+.checkbox-dropdown {
+
+    width 150px;
+    border 1px solid silver;
+    cursor pointer;  use correct mouse pointer when hovering over the dropdown 
+    padding 1px;
+    position relative;
+    margin 0 auto;
+    -webkit-touch-callout none;
+    -webkit-user-select none;
+    -khtml-user-select none;
+    -moz-user-select none;
+    -ms-user-select none;
+    user-select none;
+}
+
+ Display CSS arrow to the right of the dropdown text 
+.checkbox-dropdownafter {
+    content'';
+    height 0;
+    position relative;
+    width 0;
+    border 6px solid transparent;
+    border-top-color #000;
+    top 0px;
+    right 0px;
+
+    content ;
+    width 0;
+    height 0;
+    position absolute;
+    right -15px;
+    top 50%;
+    margin-top -6px;
+    border-width 6px 0 6px 6px;
+    border-style solid;
+    border 6px solid transparent;
+    border-top-color #000; 	
+}
+
+ Reverse the CSS arrow when the dropdown is active 
+.checkbox-dropdown.is-activeafter {
+    border-bottom-color #000;
+    border-top-color #fff;
+    margin-top -9px;
+}
+
+.checkbox-dropdown-list {
+	width 150px;
+	background-color aliceblue;
+    list-style none;
+    margin 0;
+    padding 0;
+    position absolute;
+    top 100%;  align the dropdown right below the dropdown text 
+    border inherit;
+    border-top none;
+    left -1px;  align the dropdown to the left 
+    right -1px;  align the dropdown to the right 
+    opacity 0;  hide the dropdown 
+    -webkit-transition opacity 0.1s ease-in-out;
+    -moz-transition opacity 0.1s ease-in-out;
+    -o-transition opacity 0.1s ease-in-out;
+    -ms-transition opacity 0.1s ease-in-out;
+    transition opacity 0.1s ease-in-out;
+    pointer-events none;  avoid mouse click events inside the dropdown 
+}
+.is-active .checkbox-dropdown-list {
+    opacity 1;  display the dropdown 
+    pointer-events auto;  make sure that the user still can select checkboxes 
+}
+
+.checkbox-dropdown-list li label {
+    display block;
+	margin-top 5px;
+    border-bottom 1px solid silver;
+    padding 0px;
+    -webkit-transition all 0.2s ease-out;
+    -moz-transition all 0.2s ease-out;
+    -o-transition all 0.2s ease-out;
+    -ms-transition all 0.2s ease-out;
+    transition all 0.2s ease-out;
+}
+
+.checkbox-dropdown-list li labelhover {
+
+}
+
+li{
+	margin-left 5px;
+}
+
+.mpg_block{
+	background-color gray;
+}
+	style
+
+	
+head
+body
+div class=container-fluid
+div class=row
+div class=span8
+h2Run Forecast Comparisonh2
+div
+div class=span8
+br
+	div class=checkbox-dropdown dropdown_textPlot Options
+	ul class=checkbox-dropdown-listlibTimeseries Chartbli
+		lilabelinput id=showArrow type=checkbox checked&nbsp;Show Arrowslabelli	
+		lilabelinput id=showForecast type=checkbox checked&nbsp;Show Forecastslabelli
+		
+		lilabelinput id=showCounts type=checkbox checked&nbsp;Show Countslabelli	
+		lilabelinput id=showHarvest type=checkbox checked&nbsp;Show Harvestlabelli	
+		liValue Displayli
+		lilabelinput class=showValueText name=showValueText type=radio value=forecast_value&nbsp;Forecast Valuelabelli		
+		lilabelinput class=showValueText name=showValueText type=radio value=forecast&nbsp;% of Forecastlabelli
+		lilabelinput class=showValueText name=showValueText type=radio value=actual&nbsp;% of Actuallabelli
+		lilabelinput class=showValueText name=showValueText type=radio value=none checked&nbsp;Nonelabelli
+		ul
+					
+    div
+div
+div
+
+div class=row
+div class=span16 id=filters
+  ul class=nav nav-tabs
+    li class=activea data-toggle=tab href=#schinookSpring Chinookali
+	lia data-toggle=tab href=#smchinookSummer Chinookali	
+	lia data-toggle=tab href=#fchinookFall Chinookali
+    lia data-toggle=tab href=#steelheadSteelheadali
+	lia data-toggle=tab href=#wsteelheadWild Steelheadali
+	lia data-toggle=tab href=#aboutAboutali	
+	lia data-toggle=tab href=#helpHelpali	
+	
+  ul
+
+div class=tab-content
+
+    div id=schinook class=tab-pane fade in active
+	div id=schinook_svg class=controldiv
+	div id=SChin_legend class=control legendhrdiv
+	div id=SChin_svg class=controldiv
+	div
+	
+    div id=smchinook class=tab-pane fade
+	div id=smchinook_svg class=controldiv
+	div id=SMChin_legend class=control legendhrdiv
+	div id=SMChin_svg class=controldiv
+	div	
+	
+    div id=fchinook class=tab-pane fade
+	div id=fchinook_svg class=controldiv
+	div id=FChin_legend class=control legendhrdiv
+	div id=FChin_svg class=controldiv
+	div
+ 
+    div id=steelhead class=tab-pane fade
+	div id=steelhead_svg class=controldiv
+	div id=Stlhd_legend class=control legendhrdiv
+	div id=Stlhd_svg class=controldiv
+	div
+	
+	div id=wsteelhead class=tab-pane fade
+	div id=wsteelhead_svg class=controldiv
+	div id=WStlhd_legend class=control legendhrdiv
+	div id=WStlhd_svg class=controldiv
+	div
+	
+	div id=help class=tab-pane fade
+	pNop
+	div
+	
+	div id=about class=tab-pane fade
+	h3Data Sourceh3
+	ul
+	lia href=httpswdfw.wa.govfishingmanagementcolumbia-riverreports target=_newJoint State Staff Reports (WDFW and ODFW) 2000-presentali
+	lia href=httpwww.cbr.washington.edudartqueryadult_graph_text target=_newDART (Data Access in Real Time, University of Washington)ali
+	ul
+	br
+	h3Methodologyh3
+	table width=800trtd align=left
+	pThe Joint Staff Reports provide cumulative run forecasts for Upriver (headed above Bonneville Dam) Adult Spring Chinook, Fall Chinook, and Steelhead at the Columbia River mouth, as well as actual counts estimated for the forecasted year.
+	These latter values are computed from the Bonneville Dam counts plus estimated harvest-associated loss. From the Spring 2020 report
+	brbr
+	i
+	Since 2005, the upriver spring Chinook run size has included Snake River summer Chinook
+	due to similarities in run timing among the stocks, and is calculated as the sum of the Bonneville
+	Dam count plus the number of upriver-origin fish landed in lower river fisheries (kept catch plus
+	release mortalities) from January 1 through June 15.
+	i
+	p
+	p
+	img src=ForecastToolSnip.jpg border=0 align=right
+In this tool, the harvested component of the return is computed by subtracting the Bonneville dam count (obtained from DART) (for the period of interest) from the estimate provided in the report for each year.
+The dam count and computed harvest values are depicted with stacked bars (figure at right). 
+The forecast for each year is depicted with a circle marker with a color indicating an underestimate (green) or an overestimate (red). 
+To further highlight the difference between forecast and actual, an arrow (with same color coding) can be displayed pointing from the forecast value to the dam count + harvest sum (equal to the comparison value in the report). 
+The return percent of forecast (or alternately the forecast percent of return) can be displayed in text.
+brbr
+As noted in the report, the Spring Chinook period ending was changed from 531 to 615 to include Snake River Summer Chinook. 
+For consistent comparison of forecast with actual, dam count data prior to 2015 account for the earlier cutoff. Therefore, there is a discontinuity in the timeseries for forecast and actual values that must be recognized.
+	p
+	p
+Summer Chinook is presumed to be from the Upper Columbia stocks (above Priest Rapids Dam). The SpringSummer cutoff date change in 2005 applies as for Spring Chinook. In this case, the actual return values (Bonneville dam count and estimated harvest) have been adjusted. 
+However, adjusted forecast values for 2001-2004 are not available (thus those presented here have not been adjusted)	
+	p
+	tdtrtable
+	div
+	
+div !--end container--
+div id=spinnerimg src=imagesspinner.gifdiv
+body
+
+script
+
+function getCheckedIndex(radiovar){
+	var index=0;
+	d3.selectAll(input. + radiovar).each(function(d,i){if (this.checked)index=i})
+	return index
+}
+
+function processInput(){
+	var year = d3.select(#year-select).property(value)
+	var project = d3.select(#proj-select).property(value)
+	var run = getCheckedIndex(run)
+	run = run == 0    run.toString();
+	var chart = new DailyDamCounts({year year, project project, run run})
+	getDailyCounts(project,year,run)
+}
+
+class DailyDamCounts{
+	constructor(options){
+		if (!options.project){
+			console.log(options)
+			return null;
+		}
+		else{
+			console.log(options)
+		}
+	}
+}
+
+
+var format1 = d3.time.format(%Y-%m-%d);
+
+var Current;
+var Default;
+var curse;
+
+var tipdiv = d3.select(body).append(div)   
+    .attr(class, tooltip)               
+    .style(opacity, 0);
+
+var counts = {};
+var scale_by_dam = true;
+
+var params = {daily 
+	{	 
+		 data {},
+		 max_counts {},
+		 max_cum {}, 
+		 scale_global false, 
+		 id 0,
+		 csvdata {},
+	 },
+	 cum_ref ytd10yr,
+	 dam_geomean 5yrGeomean,
+	 showArrow true,
+	 showValueText none,
+	 showCounts true,
+	 showHarvest true,
+	 showForecast true,
+	 
+	 };	 
+
+params.current_value_display=2; 
+	 
+params.topchart = {width 1050,height 650,
+		margin {
+			top 0, right 275, bottom 50, left 125, left2 25, right2 75
+		}
+}
+
+	 
+var projects = [Willamette Falls,Bonneville,The Dalles,John Day,McNary,Ice Harbor,Lower Monumental,Little Goose,Lower Granite,Prosser,Roza,Priest Rapids,Wanapum,Rock Island,Tumwater,Rocky Reach,Wells,Zosel];
+projects.reverse();
+var species = [Chinook,Jack.Chinook,Steelhead,Wild.Steelhead,Sockeye,Coho,Jack.Coho,Shad,Lamprey,Spring.Chinook,Spring.Jack.Chinook,Summer.Chinook,Summer.Jack.Chinook,Fall.Chinook,Fall.Jack.Chinook];
+
+var species_lookup = {Chinook Chin, Jack.Chinook JChin, Steelhead Stlhd, Wild.Steelhead WStlhd,Sockeye Sock, Coho Coho, Jack.Coho JCoho, Shad Shad, Lamprey Lmpry};
+
+var project_lookup = {BON Bonneville,IHR Ice Harbor,JDA John Day,LGS Little Goose,LWG Lower Granite,LMN Lower Monumental,MCN McNary,PRD Priest Rapids,PRO Prosser,ROZ Roza,RIS Rock Island,RRH Rocky Reach,TDA The Dalles,TUM Tumwater,WAN Wanapum,WEL Wells,WFF Willamette Falls,ZOS Zosel};
+
+var rlookup = function(obj){
+	var keys = Object.keys(obj);
+	var obj2 = {};
+	keys.forEach(function (d) {
+		obj2[obj[d]] = d;
+	});
+	return obj2;
+}
+
+var rspecies_lookup = rlookup(species_lookup);
+var rproject_lookup = rlookup(project_lookup);
+
+species.forEach(function(d){
+	counts[d] = [];
+	params.daily.max_counts[d] = 0;
+	params.daily.max_cum[d] = 0;
+});
+
+var setChecked = function(obj){
+d3.selectAll(. + d3.select(obj).attr(class)).property(checked,obj.checked);
+}
+
+var _width = 1000, _height = 650;
+var width, height;
+
+		
+var xmaxes = [2.5,5];
+
+var mycolours =[#D92121,#21D921, #ffff00, #ff8000]
+
+
+var tipdiv = d3.select(body).append(div)   
+    .attr(class, tooltip)               
+    .style(opacity, 0);
+
+var addScale = function(s,x1,y1,max,height,int_only){
+var r;
+    var y = d3.scale.linear().domain([max,0]).range([0,height]);  value - display
+    if(int_only)r = d3.svg.axis().scale(y).orient(right).ticks(4).tickFormat(d3.format(d));
+	else r = d3.svg.axis().scale(y).orient(right).ticks(4).tickFormat(d3.format(.2f));
+	var g = s.append(g)
+		.attr(transform, translate( + x1 + , + y1 + ))
+		.attr(height,height)
+		.append(g)
+		.attr(class, z axis)
+		.call(r)
+		.append(text)
+		.attr(transform, rotate(-90));
+		
+}
+
+d3.hsl(hsl(0, 76%, 50%))
+
+var getTempColor = function(d){
+	var thermal = [#67001f,#b2182b,#d6604d,#f4a582,#fddbc7,#f7f7f7,#d1e5f0,#92c5de,#4393c3,#2166ac,#053061];
+	
+	var hsl;
+	if(d  19){
+		hsl = 180 + Math.round((20-d)3);	
+	}
+	else if(d20){
+		hsl = 45 + Math.round((20-d)100);
+	}	
+	else{
+		hsl = 45 - Math.round((d-20)12);
+	}
+	return d3.hsl(hsl( + hsl + , 76%, 50%))
+}
+
+function clone(obj) {
+    if (null == obj  object != typeof obj) return obj;
+    var copy = obj.constructor();
+    for (var attr in obj) {
+        if (obj.hasOwnProperty(attr)) copy[attr] = clone(obj[attr]);
+    }
+    return copy;
+}
+
+var toggleCumRef = function(obj){
+params.cum_ref=obj.options[obj.selectedIndex].value;
+
+}
+
+class ForecastComparison{
+	constructor(options){
+		if (!options.target){
+			console.log(options)
+			return null;
+		}
+		else{
+			this.target = options.target;
+			this.url = options.url  options.url  JointStaffRunForecast.csv;
+			if(!options.data){
+				var _this = this;
+				d3.csv(this.url, function (data) {
+					console.log(data)
+					var maxvalue=0;
+					data.forEach(function(d){
+						d.Forecast = +d.JSR_forecast_table2;
+						d.Counts = +d.DART_BON_count;
+						d.Actual = +d.JSR_actual_table2
+						d.Harvest = d.Actual  0  d.Actual - d.Counts  0
+						if(d.Forecastmaxvalue)maxvalue=d.Forecast;
+						if(d.Actualmaxvalue)maxvalue=d.Actual;
+						d.Year = +d.year;
+					});
+					_this.maxvalue=maxvalue;
+					_this.minyear=0;
+					_this.maxyear=2024;
+					_this.data = data
+				})
+			}
+			else this.data = options.data;
+		}			
+	}
+	plotComparison(options){
+		var species = options.species  options.species  Chinook;
+		var run = options.run  options.run  Spring;
+		var rtype = options.rtype  options.rtype  all;		
+		var startyear = options.startyear  options.startyear  1985;
+		var endyear = options.endyear  options.endyear  params.year;
+		var showArrow = options.showArrow  options.showArrow  true;
+		var showValueText = options.showValueText  options.showValueText  false;
+		var showCounts = options.showValueText  options.showCounts  true;
+		var showHarvest = options.showValueText  options.showHarvest  true;
+		var height2 = 500;
+		var width2 = 1050;
+		var margin = {top 60, right 100, bottom 50, left 150},
+		width = width2 - margin.left - margin.right,
+		height = height2 - margin.top - margin.bottom;
+
+		d3.select(# + this.target).select(svg).remove();
+		var svg1 = d3.select(# + this.target).append(svg)
+			.attr(class,single)
+			.attr(width, width + margin.left + margin.right)
+			.attr(height, height + margin.top + margin.bottom);
+			
+		var max_counts = 0;
+		
+		var damdata = this.data.filter(function(d){
+			return d.species==species & d.run==run & d.rtype==rtype & d.Year = startyear & d.Year = endyear;
+		})
+
+		damdata.forEach(function(d){
+			max_counts = d.Counts  max_counts  d.Counts  max_counts;
+			max_counts = d.Actual  max_counts  d.Actual  max_counts;
+			max_counts = d.Forecast  max_counts  d.Forecast  max_counts;
+			})
+		
+		damdata.sort(function(a,b){
+			return a.Year-b.Year;
+		});	
+		
+		var x = d3.scale.linear().domain([startyear-1,endyear+1]).range([0, width]),
+			y = d3.scale.linear().domain([0, max_counts1.1]).range([height,0]);
+
+		var xAxis = d3.svg.axis().scale(x).orient(bottom).tickFormat(d3.format(d));
+		var yAxis = d3.svg.axis().scale(y).orient(left);
+
+		var svg2 = svg1.append(g)
+				.attr(class, main)
+				.attr(transform, translate( + margin.left + , + margin.top + ));		
+				
+		svg2.append(g)
+				.attr(class, y axis)
+				.call(yAxis)
+				.append(text)
+				.attr(transform, rotate(-90))
+				.attr(y, 6)
+				.attr(dy, .71em)
+				.style(text-anchor, end);
+				
+		svg2.append(g)
+			.attr(class, x axis)
+			.attr(transform, translate(0, + height + ))
+			.call(xAxis)
+			.append(text);
+
+		svg2.selectAll(.axis)
+			.selectAll(text)
+			.style(font-size,16)
+
+		var bars = svg2.append(g).attr(class, bars);
+		
+		bars.selectAll(rect)
+		  .data(damdata)
+		  .enter()
+		  .append(rect)
+		  .attr(width, .75(x(2000)-x(1999)))
+		  .attr(x, function(d) { 
+			var _x = x(d.Year) - .375(x(d.Year+1)-x(d.Year));
+			console.log(x =  + _x)	
+			return(_x);
+			})
+		  .attr(y, function(d) {
+			return y(d.Counts);
+		  })
+		  .attr(height, function(d) {
+			var h = height - y(d.Counts); 
+			return h; })
+		  .style(fill-opacity, function(d) {
+				return 0;
+		  })
+		  .style(stroke,#000000)
+		  .style(stroke-opacity,params.showCounts  1  0)
+		  
+		  
+		var harvest = svg2.append(g).attr(class, harvest);
+		
+		harvest.selectAll(rect)
+		  .data(damdata.filter(function(d){return d.Harvest0}))
+		  .enter()
+		  .append(rect)
+		  .attr(width, .75(x(2000)-x(1999)))
+		  .attr(x, function(d) { 
+			var _x = x(d.Year) - .375(x(d.Year+1)-x(d.Year));
+			console.log(x =  + _x)	
+			return(_x);
+			})
+		  .attr(y, function(d) {
+			return y(d.Counts+d.Harvest);
+		  })
+		  .attr(height, function(d) {
+			var h = height - y(d.Harvest); 
+			return h; })
+		  .style(fill,#cccccc)
+		  .style(fill-opacity,params.showHarvest  1  0)
+		  .style(stroke,#000000)
+		  .style(stroke-opacity,params.showHarvest  1  0)
+		  
+		var diffbars = svg2.append(g).attr(class, diffbars);
+		
+		diffbars.selectAll(rect)
+		  .data(damdata.filter(function(d){return d.Actual0 & d.Forecast0}))
+		  .enter()
+		  .append(rect)
+		  .attr(width, .24(x(2000)-x(1999)))
+		  .attr(x, function(d) { 
+			var _x = x(d.Year) - .12(x(d.Year+1)-x(d.Year));
+			console.log(x =  + _x)	
+			return(_x);
+			})
+		  .attr(y, function(d) {
+			if(d.Forecast  d.Actual)return y(d.Forecast)
+			else return y(d.Actual)+5;
+		  })
+		  .attr(height, function(d) {
+			var h = Math.abs(y(d.Forecast) - y(d.Actual)); 
+			return h  5  0  h-5; 
+		  })
+		  .style(fill-opacity, params.showArrow  .8  0)
+		  .style(stroke-opacity,0)
+		  .style(fill,function(d){
+			return d.Forecast  d.Actual  red  green;
+		  })
+		  
+		var arrows = svg2.append(g).attr(class,arrows)
+		
+		arrows.selectAll(.arrow)
+			.data(damdata.filter(function(d){return d.Actual0 & d.Forecast0}))
+			.enter()
+			.append('path')
+			.attr(transform, function(d){
+				var ypos = y(d.Actual) + (d.Forecast  d.Actual  -5  5);
+				return translate( + x(d.year) + , + ypos + );
+			})	
+			.attr(d, function(d){
+				if(d.Forecast  d.Actual) return d3.svg.symbol().size(50).type(triangle-down)();
+				else return d3.svg.symbol().size(50).type(triangle-up)();
+			})
+			.style(fill, function(d){
+				return d.Forecast  d.Actual  red  green;
+			})
+			.attr('stroke', function(d){
+				return d.Forecast  d.Actual  red  green;
+			})
+			.style(fill-opacity, params.showArrow  1  0)
+			.style(stroke-opacity, params.showArrow  1  0)
+			
+			
+		var predicts = svg2.append(g).attr(class,predicts)
+		
+		predicts.selectAll(.predict)
+			.data(damdata.filter(function(d){return d.Forecast0}))
+			.enter()
+			.append('path')
+			.attr(transform, function(d){
+				var ypos = y(d.Forecast);
+				return translate( + x(d.year) + , + ypos + );
+			})	
+			.attr(d, function(d){
+				return d3.svg.symbol().size(50).type(circle)();
+			})
+			.style(fill, function(d){
+				if(!d.Actual  0)return #666666;
+				else return d.Forecast  d.Actual  red  green;
+			})
+			.attr('stroke', function(d){
+				if(!d.Actual  0)return #cccccc;
+				else return d.Forecast  d.Actual  red  green;
+			})
+			.style(fill-opacity, params.showForecast  1  0)
+			.style(stroke-opacity, params.showForecast  1  0)			
+		
+		switch(params.showValueText) {
+		  case none
+			 do nothing
+			break;
+		  case forecast_value
+			svg2.selectAll(text.forecast_value)
+			   .data(damdata.filter(function(d){return d.Forecast0}))
+			   .enter()
+			   .append(text)
+			   .attr(class,forecast_value)
+			   .attr('text-anchor', function(d){
+				return d.Forecast  d.Actual  start  end})
+			   .attr(transform,function(d){
+				  var dx = x(d.year) + .3(x(2000)-x(1999));
+				  var dy = d.Forecast  d.Actual  y(d.Forecast) -6  y(d.Forecast)+6;
+				  return  translate( + dx + , + dy  + ) rotate(-90)
+			   })
+			   .text(function(d){
+					return d.Forecast; 
+				})
+			   .style(font-size,16)
+			   .style(opacity,function(d){
+					return  d.Forecast  d.Actual & y(0)-y(d.Forecast)  50  0  1;
+			   })
+			break;
+		  default
+			svg2.selectAll(text.forecast_value)
+			   .data(damdata.filter(function(d){return d.Forecast0 & d.Actual0}))
+			   .enter()
+			   .append(text)
+			   .attr(class,forecast_value)
+			   .attr('text-anchor', function(d){
+				return start})
+			   .attr(transform,function(d){
+				  var dx = x(d.year) + .3(x(2000)-x(1999));
+				  var dy = d.Forecast  d.Actual  y(d.Forecast)  y(d.Actual);
+				  dy += -6
+				  return  translate( + dx + , + dy  + ) rotate(-90)
+			   })
+			   .text(function(d){
+					var value = params.showValueText==forecast  d.Actuald.Forecast  d.Forecastd.Actual; 
+					if (d.Actual  0)return Math.round(100value) +%;
+					else return NA;
+				})
+			   .style(font-size,16)
+		}
+  
+		svg2.append('text')
+		.attr('x', 10)
+		.attr('y', 0)
+		.text(run +   + species + (rtype==wild   (wild only)   at Bonneville Dam))
+		.style(font-size,16);
+		
+		var drawCursor = function(target,year){
+			d3.selectAll(.curse).remove();  
+			curse = target.append(g)
+			.attr(class,curse)
+			.style(z-index, -1)
+			 vertical crosshair
+			curse.append(line)
+			  .attr({
+				x1 x(year),
+				y1 0,
+				x2 x(year),
+				y2 height + margin.bottom,
+				stroke-width1,
+				strokeblack			  
+				})
+		}
+
+		var overlay = svg2.append(g).attr(class, overlay);
+		
+		overlay.selectAll(rect)
+		  .data(damdata)
+		  .enter()
+		  .append(rect)
+		  .attr(width, .75(x(2000)-x(1999)))
+		  .attr(x, function(d) { 
+			var _x = x(d.Year) - .45(x(d.Year+1)-x(d.Year));
+			console.log(x =  + _x)	
+			return(_x);
+			})
+		  .attr(y, function(d) {
+			return 0;
+		  })
+		  .attr(height, function(d) {
+			var h = height 
+			return h; })
+		  .style(fill-opacity, function(d) {
+				return 0;
+		  })
+		  .style(stroke-opacity, function(d) {
+				return 0;
+		  })
+		  .on(mouseover, function(d) {
+				tipdiv.transition()        
+					.duration(20)      
+					.style(opacity, 1);      
+				tipdiv.html(mouseOverHTML(d))	
+					.style(left, (d3.event.pageX + 20) + px)     
+					.style(top, (d3.event.pageY - 14) + px);
+				drawCursor(svg2,d.Year);
+			})                  
+		  .on(mouseout, function(d) {       
+				tipdiv.transition()        
+					.duration(20)      
+					.style(opacity, 0);
+				d3.selectAll(.curse).remove();
+
+		  })
+		  .on(click,function(d){
+				getDailyCounts(d.year,species,run,rtype)
+		  })		
+		
+		overlays for mouseover
+		var mouseOverHTML = function(d){
+			var formatDecimal = d3.format(.1f);
+
+			var html = 'table width=160 cellpadding=3'
+			html += 'trth align=rightYearthtd align=left'+ d.Year + 'tdtr'
+			html += 'trth align=rightForecastthtd align=left' + d.Forecast + 'tdtr'
+			html += 'trth align=rightCountthtd align=left' + d.Counts + 'tdtr'
+			html += 'trth align=rightHarvestthtd align=left' + d.Harvest + 'tdtr'
+			html += 'trth align=rightRtrnFcstthtd align=left' + Math.round(100(d.Harvest + d.Counts)d.Forecast) + ' %tdtr'
+			if(params.dam_geomean != none)html += 'trth align=right' + params.dam_geomean + 'thtd align=left' + d[params.dam_geomean] + 'tdtr'
+			html += 'trth align=right colspan=2(click to view daily)thtr'
+			html += 'trtrtable';
+			return html
+		}	
+	}	
+}end class ForecastComparison
+
+class DailyChart{
+	constructor(options){
+		this.species = options.species  options.species  Chinook;
+		this.run = options.run  options.run  Spring;
+		this.rtype = options.rtype  options.rtype  all
+		this.year = options.year;
+		this.data = options.data
+		this.fdata = options.fdata
+		
+		var height2 = 175;
+		var width2 = 1050;
+		this.margin = {top 20, right 100, bottom 50, left 150}
+		this.width = width2 - margin.left - margin.right
+		this.height = height2 - margin.top - margin.bottom;
+		this.csvdata = []
+		this.flowdata = {}
+		this.fdata.forEach(function(d){
+			this.flowdata[params.formatDate(d.Date)]=d;
+		})		
+	}
+	
+	doChart(target,startdate,stopdate,id){
+		data = data.filter(function(d){
+				return d.Date  d3.time.format(%Y-%m-%d).parse(this.year + -06-16)
+		})
+	}
+}
+
+var plotDailyCounts = function(target,data,fdata,species,run,rtype,label,id){
+	
+	var height2 = 300;
+	var width2 = 1050;
+	var margin = {top 20, right 100, bottom 50, left 150},
+	width = width2 - margin.left - margin.right,
+	height = height2 - margin.top - margin.bottom;
+	
+	species = data[0].Species;
+	var project = data[0].Project;
+	var year = data[0].Date.getFullYear();
+	
+	params.daily.csvdata[id] = []
+	
+	var flowdata = {}
+	
+	fdata.forEach(function(d){
+		flowdata[params.formatDate(d.Date)]=d;
+	})
+	
+	var svg1 = d3.select(# + target).append(svg)
+		.attr(class,daily)
+		.classed(id,true)
+		.attr(width, width + margin.left + margin.right)
+		.attr(height, height + margin.top + margin.bottom);
+		
+	var max_counts = 0;
+	
+	var bar_scale = height(projects.length+1).9;
+	var bar_scale2 = height(projects.length+1);
+
+	var temps = [], mdata = [];
+	
+	data.sort(function(a,b){
+		return a.Date-b.Date;
+	});
+	
+	var min_date = d3.time.format(%Y-%m-%d).parse(year + -01-01);
+	var max_date = d3.time.format(%Y-%m-%d).parse(year + -12-31);
+	
+	var sum = 0;
+	var asum = 0;
+	var sumAvg = d3.sum(data,function(d){return d.Avg});
+	var forecast = params.data.filter(function(d){
+		return d.year==year & d.species==species & d.run == run & d.rtype == rtype;
+	})[0].Forecast
+	max_counts = 0;
+	data.forEach(function(d){
+		sum = sum + d.Counts;
+		asum = asum + d.Avg;
+		d.cum = sum;
+		d.acum = asum;
+		d.forecast = d.acum  0  d.acum(forecastsumAvg)  0;
+		max_counts = d.Counts  max_counts  d.Counts  max_counts;
+		if(d.Avg  0){
+			mdata.push({Avg d.Avg, Date d.Date});
+			max_counts = d.Avg  max_counts  d.Avg  max_counts;
+		}
+		var date = params.formatDate(d.Date)
+		if(!flowdata[date])flowdata[date] = {};
+		flowdata[date].Count = d.Counts;
+		flowdata[date].Avg = d.Avg;
+		flowdata[date].YTD = d.cum;
+		flowdata[date].AvgYTD = d.acum;
+		flowdata[date].Forecast = d.forecast;
+		if(d.TempC !=  & (+d.TempC)0)temps.push({Date d.Date, Temp +d.TempC});
+	});
+	console.log(data)
+	
+	
+	params.daily.max_counts[species] = max_counts  params.daily.max_counts[species]  max_counts  params.daily.max_counts[species];
+	if(asumsum)sum=asum;
+	params.daily.max_cum[species] = sum  params.daily.max_cum[species]  sum  params.daily.max_cum[species];
+
+	if(params.daily.scale_global){
+		max_counts=params.daily.max_counts[species];
+		sum = params.daily.max_cum[species];
+	}
+	
+	
+	var x = d3.time.scale().domain([min_date,max_date]).range([0, width]),
+		y = d3.scale.linear().domain([max_counts,0]).range([0, height]),
+		y1 = d3.scale.linear().domain([Math.max(forecast,sum,asum),0]).range([0, height]);
+
+	var xAxis = d3.svg.axis().scale(x).orient(bottom).tickFormat(d3.time.format(%b-%d));;
+	var yAxis = d3.svg.axis().scale(y).orient(left).ticks(4);
+	var yAxis1 = d3.svg.axis().scale(y1).orient(right).ticks(4);
+
+	var svg2 = svg1.append(g)
+			.attr(class, main)
+			.attr(transform, translate( + margin.left + , + margin.top + ));		
+			
+	svg2.append(g)
+			.attr(class, y axis)
+			.call(yAxis)
+			.append(text)
+			.attr(transform, rotate(-90))
+			.attr(y, 6)
+			.attr(dy, .71em)
+			.style(text-anchor, end);
+
+	svg2.append(g)
+			.attr(class, y1 axis)
+			.attr(transform, translate( + width + , + 0 + ))
+			.call(yAxis1);
+			
+	svg2.append(g)
+		.attr(class, x axis)
+		.attr(transform, translate(0, + height + ))
+		.call(xAxis);
+		
+	var cumLine = d3.svg.line()
+	.x(function(d) { return x(d.Date); })
+	.y(function(d) { return y1(d.cum); })
+	.interpolate(step-after);
+
+	var acumLine = d3.svg.line()
+	.x(function(d) { return x(d.Date); })
+	.y(function(d) { return y1(d.acum); })
+	.interpolate(step-after);	
+
+	var meanLine = d3.svg.line()
+	.x(function(d) { return x(d.Date); })
+	.y(function(d) { return y(d.Avg); })
+	.interpolate(step-after);	
+	
+	var forecastLine = d3.svg.line()
+	.x(function(d) { return x(d.Date); })
+	.y(function(d) { return y1(d.forecast); })
+	.interpolate(step-after);	
+
+	var abars = svg2.append(g).attr(class, abars);
+	var mbars = svg2.append(g).attr(class, mbars);
+	
+	var bwidth = Math.round(width400);	
+	var bwidth2 = Math.round(width365);
+	abars.selectAll(rect)
+      .data(data)
+	  .enter()
+	  .append(rect)
+      .attr(width, bwidth)
+	  .attr(x, function(d) { 
+		var _x = x(d.Date) - bwidth2;
+		return(_x);
+		})
+      .attr(y, function(d) {
+		var yy = d.Counts  0  y(d.Counts)  height; 
+		return yy;
+	  })
+      .attr(height, function(d) {
+		var h= d.Counts  0  height-y(d.Counts)  0; 
+		return h; })
+	  .style(fill, function(d) {
+			
+			return #016986;
+	  })
+	  .style(stroke,#999999);
+	   
+
+	var mline = svg2.append(g).attr(class, meanline);
+	var cline = svg2.append(g).attr(class, cumline);
+	var acline = svg2.append(g).attr(class, acumline);
+	var fline = svg2.append(g).attr(class, foreline);
+	
+	mline.append(path)
+		.attr(class, mean)
+		.attr(d, function (d) {
+			return meanLine(data);
+		})
+		.style(stroke-width, 1)
+		.style(fill,none)	
+		.style(stroke,green)	
+	
+	cline.append(path)
+		.attr(class, cum)
+		.attr(d, function (d) {
+			return cumLine(data);
+		})
+		.style(stroke-width, 1)
+		.style(fill,none)	
+		.style(stroke,black)
+
+	acline.append(path)
+		.attr(class, acum)
+		.attr(d, function (d) {
+			return acumLine(data);
+		})
+		.style(stroke-width, 1)
+		.style(fill,none)	
+		.style(stroke,green)
+
+	fline.append(path)
+		.attr(class, acum)
+		.attr(d, function (d) {
+			return forecastLine(data);
+		})
+		.style(stroke-width, 1)
+		.style(fill,none)	
+		.style(stroke,red)		
+
+	svg2.append('text')
+	.attr('x', 10)
+	.attr('y', height-10)
+	.text(label +   + year);
+	
+	var drawCursor = function(target,date){
+		d3.selectAll(.curse).remove();  
+		curse = target.append(g)
+		.attr(class,curse)
+		.style(z-index, -1)
+		 vertical crosshair
+		curse.append(line)
+          .attr({
+            x1 x(date),
+            y1 0,
+            x2 x(date),
+            y2 height + margin.bottom,
+			stroke-width1,
+			strokeblack			  
+            })
+	}	
+	
+	overlays for mouseover
+	var mouseOverHTML = function(d){
+		var fdata = flowdata[params.formatDate(d.Date)]
+		if(!fdata)fdata = {Flow NA, Mflow NA};
+		var formatDecimal = d3.format(.1f);
+		var Temp = NA;
+		if(!isNaN(fdata.TempC)) Temp = fdata.TempC + C;
+		else if(!isNaN(fdata.TempS))Temp = fdata.TempS + C;
+		
+		return 'table width=200 cellpadding=3trth align=rightDatethtd align=left'+ params.formatDate(d.Date) + 'tdtrtrth align=rightCountthtd align=left' + d.Counts + ' (' + formatDecimal(100d.Countsd.Avg) + '%)tdtrtrth align=rightYTDthtd align=left' + d.cum + ' (' + formatDecimal(100d.cumd.acum) + '%)tdtrtrth align=rightTempthtd align=left' + Temp + 'tdtrtrth align=rightFlowthtd align=left' + fdata.Flow + ' (' + formatDecimal(100fdata.Flowfdata.Mflow) + '%)tdtrtable';
+	}	
+	
+	mbars.selectAll(rect)
+      .data(data)
+	  .enter()
+	  .append(rect)
+      .attr(width, bwidth2)
+	  .attr(x, function(d) { 
+		var _x = x(d.Date) - bwidth22;
+		return(_x);
+		})
+      .attr(y, 0)
+      .attr(height, height)
+	  .style(fill-opacity, 0)
+	  .style(opacity,0)
+	  .on(mouseover, function(d) {
+            tipdiv.transition()        
+                .duration(20)      
+                .style(opacity, 1);      
+            tipdiv.html(mouseOverHTML(d))	
+                .style(left, (d3.event.pageX + 20) + px)     
+                .style(top, (d3.event.pageY - 14) + px);
+			drawCursor(svg2,d.Date);
+        })                  
+	  .on(mouseout, function(d) {       
+            tipdiv.transition()        
+                .duration(20)      
+                .style(opacity, 0);
+			d3.selectAll(.curse).remove();
+
+	  })
+	  ;	
+	 
+	var fbars = svg2.append(g).attr(class, flows);
+	
+	fbars.selectAll(rect)
+      .data(fdata.filter(function(d){
+		return isNaN(d.Flow)  isNaN(d.Mflow)  false  true;
+		}))
+	  .enter()
+	  .append(rect)
+      .attr(width, bwidth)
+	  .attr(x, function(d) { 
+		var _x = x(d.Date) - bwidth2;
+		console.log(x =  + _x)	
+		return(_x);
+		})
+      .attr(y, function(d){
+	    var offset = 10d.Flow(2d.Mflow)
+		if(isNaN(offset))console.log(d);
+		var yy = height + 35 - offset;
+		return yy;
+		})
+      .attr(height, function(d){return 10d.Flowd.Mflow})
+	  .style(fill, function(d) {
+			var tcolor = #bbbbbb;
+			if(!isNaN(d.TempC)) tcolor = getTempColor(d.TempC);
+			else if(!isNaN(d.TempS))tcolor = getTempColor(d.TempS);
+			return tcolor;
+	  })
+	  	  .on(mouseover, function(d) {
+			var temp = NA;
+			if(!isNaN(d.TempC))temp = d.TempC;
+			else if(!isNaN(d.TempS))temp = d.TempS;
+            tipdiv.transition()        
+                .duration(20)      
+                .style(opacity, 1);      
+            tipdiv.html('tabletrthDatethtd' + format1(d.Date) + 'tdtrtrthTempthtd' + temp + 'tdtrtrthFlowthtd' + d.Flow + 'tdtrtrthMeanthtd' + d.Mflow + 'tdtrtable')	
+                .style(left, (d3.event.pageX + 5) + px)     
+                .style(top, (d3.event.pageY +5) + px);
+        })                  
+	  .on(mouseout, function(d) {       
+            tipdiv.transition()        
+                .duration(20)      
+                .style(opacity, 0);
+	  });
+	  
+	  svg1
+	  .append(image)
+      .attr(xlinkhref, close_icon.jpg)
+      .attr(x, width + margin.left + margin.right-20)
+      .attr(y, 0)
+      .attr(width, 20)
+      .attr(height, 20)
+	  .attr(class, close_button)
+	  .style(opacity,1)
+	  .on(mouseover, function(d) {
+            tipdiv.transition()        
+                .duration(20)      
+                .style(opacity, 1);      
+            tipdiv.html('Delete This')  
+                .style(left, (d3.event.pageX + 20) + px)     
+                .style(top, (d3.event.pageY - 10) + px);    
+        })                  
+	  .on(mouseout, function(d) {       
+            tipdiv.transition()        
+                .duration(20)      
+                .style(opacity, 0);   
+		})
+	  .on(click, function(d){			
+		d3.selectAll(. + id).remove();
+		tipdiv.style(opacity, 0);
+		});
+		
+	var tablevars = [Count,Avg,YTD,AvgYTD,TempS,TempC,Flow,Mflow,Spill]
+	var datadiv = d3.select(# + target)
+		.append(div)
+		.attr(class,id)
+		.style(display,none)
+		.style(overflow,scroll)
+		.attr(margin-left,200)
+	console.log(flowdata)
+	
+	initialize csv data
+	var csvrow;
+	params.daily.csvdata[id].push([Date,Species,Dam,Count,Avg,YTD,AvgYTD,TempS,TempC,Flow,Mflow,Spill])
+	var datatable = datadiv.append(table).property(border,1).style(margin-left,150)
+	var row = datatable.append(tr);
+	row.append(th).html(Date)
+	row.append(th).html(Species)
+	row.append(th).html(Dam)
+	tablevars.forEach(function(d){
+		row.append(th).html(d)
+	})
+	
+	Object.keys(flowdata).forEach(function(d){
+		csvrow = []
+		row = datatable.append(tr);
+		row.append(td).html(d)
+		csvrow.push(d);
+		row.append(td).html(species)
+		csvrow.push(species);
+		row.append(td).html(project)
+		csvrow.push(project);
+		tablevars.forEach(function(dd){
+			row.append(td).html(flowdata[d][dd]);
+			csvrow.push(flowdata[d][dd]  flowdata[d][dd]  NA)
+		})
+		params.daily.csvdata[id].push(csvrow)
+	})
+	
+	
+	
+	 svg1
+	.append(image)
+      .attr(xlinkhref, open_table.jpg)
+      .attr(width, 20)
+      .attr(height, 20)
+      .attr(x, width + margin.left + margin.right-20)
+      .attr(y, height + margin.top + margin.bottom-150)
+	  .attr(class, showdata)
+	  .style(cursor,pointer)
+	  .on(mouseover, function(d) {
+            tipdiv.transition()        
+                .duration(20)      
+                .style(opacity, 1);      
+            tipdiv.html(datadiv.style(display)==none  Show Table  Hide table)  
+                .style(left, (d3.event.pageX + 20) + px)     
+                .style(top, (d3.event.pageY - 10) + px);    
+        })                  
+	  .on(mouseout, function(d) {       
+            tipdiv.transition()        
+                .duration(20)      
+                .style(opacity, 0);   
+		})
+	  .on(click, function(d){			
+		if(datadiv.style(display)==none){
+			datadiv.style(display,block);
+			d3.select(this).attr(xlinkhref, close_table.jpg)
+		}	
+		else {
+			datadiv.style(display,none);
+			d3.select(this).attr(xlinkhref, open_table.jpg)
+		}	
+		tipdiv.style(opacity, 0);
+		})
+	  	
+	 svg1
+	.append(image)
+      .attr(xlinkhref, download.png)
+      .attr(width, 20)
+      .attr(height, 20)
+      .attr(x, width + margin.left + margin.right-20)
+      .attr(y, height + margin.top + margin.bottom-124)
+	  .attr(class, download)
+	  .style(cursor,pointer)
+	  .on(mouseover, function(d) {
+            tipdiv.transition()        
+                .duration(20)      
+                .style(opacity, 1);      
+            tipdiv.html(Download Data)  
+                .style(left, (d3.event.pageX + 20) + px)     
+                .style(top, (d3.event.pageY - 10) + px);    
+        })                  
+	  .on(mouseout, function(d) {       
+            tipdiv.transition()        
+                .duration(20)      
+                .style(opacity, 0);   
+		})
+	  .on(click, function(d){	
+			filename = project + _ + rtype + _ + run + _ + species + _ + year + .csv
+			writeCSV(params.daily.csvdata[id],filename)
+		})
+}
+
+var plotLegend = function(target){
+	var width = 1000
+	var height = 80;
+	var margin = {top 20,bottom 20}
+	var water_position = [100,12];
+	
+	create data
+	var fdata = [], t, f
+	for(i=1;i101;i++){
+		t = i4
+		f = 2 - i(1.5)100 
+		fdata.push({x i2.5, f f, t t})
+	}
+	
+	var x = d3.scale.linear().domain([0,25]).range([0, 250]),
+		x2 = d3.scale.linear().domain([2,0.5]).range([0, 250]),
+		y = d3.scale.linear().domain([3,-3]).range([0, height]),
+		bwidth = 4
+
+	var xAxis = d3.svg.axis().scale(x).orient(bottom);
+	var xAxis2 = d3.svg.axis().scale(x2).orient(top);
+	var yAxis = d3.svg.axis().scale(y).orient(left).ticks(4);	
+
+	var svg = d3.select(target).append(svg)
+		.attr(class,legend)
+		.attr(width, width)
+		.attr(height, height + margin.top + margin.bottom);
+		
+	svg.append(g)
+		.attr(class, x axis)
+		.attr(transform, translate( + water_position[0] + , + (height+margin.bottom-20) + ))
+		.call(xAxis);
+		
+	svg.append(g)
+		.attr(class, x axis)
+		.attr(transform, translate( + water_position[0] + , + (margin.top + 20) + ))
+		.call(xAxis2);		
+
+	svg.append(g)
+		.attr(transform, translate( + (water_position[0] + x2(1.8)) + ,13))
+		.append(text)
+		.attr(class,legend_text)
+		.text(Flow (relative to 10yr mean))
+		
+		svg.append(g)
+		.attr(transform, translate( + (water_position[0] + x(5)) + , + (margin.top + height + margin.bottom -3) + ))
+		.append(text)
+		.attr(class,legend_text)
+		.text(Water Temperature (xB0C))	
+	
+
+	d3.selectAll(.legend_text).style(font,14px sans-serif)	
+
+	var fbars = svg.append(g).attr(class, flows);
+	
+	fbars.selectAll(rect)
+      .data(fdata)
+	  .enter()
+	  .append(rect)
+      .attr(width, bwidth)
+	  .attr(x, function(d) { 
+		var _x =  100 + d.x - bwidth2;
+		return(_x);
+		})
+      .attr(y, function(d){
+	    var offset = 10d.f
+		if(isNaN(offset))console.log(d);
+		var yy = (height + margin.top+margin.bottom)2 - offset2;
+		return yy;
+		})
+      .attr(height, function(d){return 10d.f})
+	  .style(fill, function(d) {
+			var tcolor = #bbbbbb;
+			tcolor = getTempColor(d.t);
+			return tcolor;
+	  })
+	  	  .on(mouseover, function(d) {
+			var temp = d.t
+            tipdiv.transition()        
+                .duration(20)      
+                .style(opacity, 1);      
+            tipdiv.html('tabletrthTempthtd' + temp + 'tdtrtrthRelative Flowthtd' + d.f + 'tdtrtable')	
+                .style(left, (d3.event.pageX + 5) + px)     
+                .style(top, (d3.event.pageY +5) + px);
+        })                  
+	  .on(mouseout, function(d) {       
+            tipdiv.transition()        
+                .duration(20)      
+                .style(opacity, 0);
+	  });
+}
+
+
+var getDailyCounts = function(year,species,run,rtype){
+	var project = BON
+	
+	var url_counts = httpwww.onefishtwofish.netDartDamCounts.jsphttpwww.cbr.washington.edudartcsphprptadult_daily.phpsc=1&outputFormat=csv&year= + year + &proj= + project + &span=no&startdate=1%2F1&enddate=12%2F31&run=&syear= + year + &eyear= + year + &avg=1; 
+	var url_counts = httpswww.cbr.washington.edudartcsphprptadult_daily.phpsc=1&outputFormat=csv&year= + year + &proj= + project + &span=no&startdate=1%2F1&enddate=12%2F31&run=&syear= + year + &eyear= + year + &avg=1; 
+	var year1 = year - 1;
+	var year1 = 2019; use 2008-2018 mean flow as reference
+	var url_flow = httpwww.onefishtwofish.netDartDamCounts.jsphttpwww.cbr.washington.edudartcsphprptmg.phpsc=1&mgconfig=river&outputFormat=csv&year%5B%5D= + year + &loc%5B%5D= + project + &data%5B%5D=Outflow&data%5B%5D=Outflow+10YrAvg&data%5B%5D=Spill&data%5B%5D=Temp+%28Scroll+Case%29&data%5B%5D=Temp+%28WQM%29&startdate=1%2F1&enddate=12%2F31&avgyear= + year1 + &consolidate=1&grid=1&y1min=0&y1max=&y2min=&y2max=&y3min=&y3max=&y4min=&y4max=&size=medium;
+	var url_flow = httpswww.cbr.washington.edudartcsphprptmg.phpsc=1&mgconfig=river&outputFormat=csv&year%5B%5D= + year + &loc%5B%5D= + project + &data%5B%5D=Outflow&data%5B%5D=Outflow+10YrAvg&data%5B%5D=Spill&data%5B%5D=Temp+%28Scroll+Case%29&data%5B%5D=Temp+%28WQM%29&startdate=1%2F1&enddate=12%2F31&avgyear= + year1 + &consolidate=1&grid=1&y1min=0&y1max=&y2min=&y2max=&y3min=&y3max=&y4min=&y4max=&size=medium;
+	if(!params.daily.data[year]){
+		d3.select(#spinner).style('visibility','visible');
+		d3.xhr(url_flow).get(function (err1, response1) {
+		  var dirtyCSV1 = response1.responseText;
+		  var firstEOL1 = dirtyCSV1.indexOf('n');
+		  var parsedCSV1 = d3.csv.parse(dirtyCSV1.substring(firstEOL1+2));
+		d3.xhr(url_counts).get(function (err, response) {
+		  d3.select(#spinner).style('visibility','hidden');
+		  var dirtyCSV = response.responseText;
+		  var firstEOL = dirtyCSV.indexOf('n');
+		  var parsedCSV = d3.csv.parse(dirtyCSV);
+		  var countdata = {}
+		  var allspecies = [Chinook,Steelhead,Wild.Steelhead];
+		  allspecies.forEach(function(d){countdata[d] = [];});
+
+		  parsedCSV.forEach(function(d){
+			console.log(d)
+			if (!(d.Date == null)) countdata = parseDaily(countdata,d);
+		  });
+		  
+		var keys = Object.keys(parsedCSV1[0]);
+		console.log(keys);
+		var fdata = [];
+		parsedCSV1.forEach(function(d){
+			d.Flow = +d[keys[1]];
+			d.Mflow = +d[keys[2]];
+			for(i=3;ikeys.length;i++){
+				if(keys[i].indexOf(spill) != -1)d.Spill = +d[keys[i]];
+				if(keys[i].indexOf(tempscr) != -1)d.TempS = +d[keys[i]]0  +d[keys[i]]  NaN;
+				if(keys[i].indexOf(tempc) != -1)d.TempC = +d[keys[i]]0  +d[keys[i]]  NaN;
+			}
+			d.Date = d3.time.format(%Y%m%d).parse(year +  + d[keys[0]]);
+			for(i=0;ikeys.length;i++)delete d[keys[i]];
+			if(d.Date)fdata.push(d);
+		});		  
+		  
+		params.daily.data[year] = {counts countdata, flow fdata};
+		  
+		doDailyChart(year,species,run,rtype)
+		
+		});
+		});
+	}
+	else{
+		console.log(already there)
+		doDailyChart(year,species,run,rtype)
+	}
+};
+
+function doDailyChart(year,species,run,rtype){
+	var data,target,label = ;
+	var fdata = params.daily.data[year].flow;
+	var id = ID + params.daily.id++;
+	if(species == Chinook){
+		data = params.daily.data[year].counts[Chinook]
+		if(run == Spring){
+			data = data.filter(function(d){
+				if(year2005)return d.Date  d3.time.format(%Y-%m-%d).parse(year + -06-01)
+				else return d.Date  d3.time.format(%Y-%m-%d).parse(year + -06-16)
+			})
+			target = SChin_svg;
+			label += Spring Chinook
+		}
+		else if(run == Summer){
+			data = data.filter(function(d){
+				return d.Date  d3.time.format(%Y-%m-%d).parse(year + -08-01) & d.Date  d3.time.format(%Y-%m-%d).parse(year + -06-15)
+			})
+			target = SMChin_svg;
+			label += Summer Chinook
+		}
+		else{
+			data = data.filter(function(d){
+				return d.Date = d3.time.format(%Y-%m-%d).parse(year + -08-01)
+			})
+			target = FChin_svg;
+			label += Fall Chinook
+		}
+	}
+	else{
+		if(rtype==all){
+			data = params.daily.data[year].counts[Steelhead]
+			data = data.filter(function(d){
+				return d.Date = d3.time.format(%Y-%m-%d).parse(year + -06-01)
+			})
+			target = Stlhd_svg;
+			label += Summer Steelhead
+		}
+		else{
+			data = params.daily.data[year].counts[Wild.Steelhead]
+			data = data.filter(function(d){
+				return d.Date = d3.time.format(%Y-%m-%d).parse(year + -06-01)
+			})
+			target = WStlhd_svg;
+			label += Wild Summer Steelhead
+		}
+	}
+	plotDailyCounts(target,data,fdata,species,run,rtype,label,id)
+}
+
+var parseDaily = function(data,d){
+	var date = format1.parse(d.Date);
+	var temp = d.TempC;
+	data[Chinook].push({Date date, Species Chinook, Project d.Project, TempC temp, Counts +d.Chin, Avg +d[Chinook 10YearAvg] });
+	if(+d.JChin 0)data[Jack.Chinook].push({Date date, Species Jack.Chinook, Project d.Project, TempC temp, Counts +d.JChin, Avg +d[Jack Chinook 10YearAvg]});
+	if(+d.Coho 0)data[Coho].push({Date date, Species Coho, Project d.Project, TempC temp, Counts +d.Coho, Avg +d[Coho 10YearAvg]});
+	if(+d.JCoho 0)data[Jack.Coho].push({Date date, Species Jack.Coho, Project d.Project, TempC temp, Counts +d.JCoho, Avg });
+	if(+d.Stlhd 0)data[Steelhead].push({Date date, SpeciesSteelhead, Project d.Project, TempC temp, Counts +d.Stlhd, Avg +d[Steelhead 10YearAvg]});
+	if(+d.WStlhd 0)data[Wild.Steelhead].push({Date date, SpeciesWild.Steelhead, Project d.Project, TempC temp, Counts +d.WStlhd, Avg +d[Wild Steelhead 10YearAvg]});
+	if(+d.Sock 0)data[Sockeye].push({Date date, Species Sockeye, Project d.Project, TempC temp, Counts +d.Sock, Avg +d[Sockeye 10YearAvg]});
+	if(+d.Shad 0)data[Shad].push({Date date, Species Shad, Project d.Project, TempC temp, Counts +d.Shad, Avg +d[Shad 10YearAvg]});
+	if(+d.Lmpry 0)data[Lamprey].push({Date date, Species Lamprey, Project d.Project, TempC temp, Counts +d.Lmpry, Avg });
+	return data;
+}
+
+function createTable(target,tableData) {
+  var table = document.createElement('table');
+  var tableBody = document.createElement('tbody');
+
+  tableData.forEach(function(rowData) {
+    var row = document.createElement('tr');
+
+    rowData.forEach(function(cellData) {
+      var cell = document.createElement('td');
+      cell.appendChild(document.createTextNode(cellData));
+      row.appendChild(cell);
+    });
+
+    tableBody.appendChild(row);
+  });
+
+  table.appendChild(tableBody);
+  target.appendChild(table);
+}
+
+
+
+var showTable = function(target,data){
+	var t = d3.select(target).append(div)
+	createTable(t.node(),data)
+	console.log(data)
+}
+
+
+Date.prototype.isLeapYear = function() {
+    var year = this.getFullYear();
+    if((year & 3) != 0) return false;
+    return ((year % 100) != 0  (year % 400) == 0);
+};
+
+ Get Day of Year
+Date.prototype.getDOY = function() {
+    var dayCount = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
+    var mn = this.getMonth();
+    var dn = this.getDate();
+    var dayOfYear = dayCount[mn] + dn;
+    if(mn  1 && this.isLeapYear()) dayOfYear++;
+    return dayOfYear;
+};
+ 
+
+Default = {};
+Default.plotted_range = [1936,2025];
+Current = {};
+Default.year_range = [1936,1936];
+Current.plotted_range = [Default.plotted_range[0],Default.plotted_range[1]];
+
+
+var now = new Date();
+var year = now.getFullYear()2018;
+var doy = now.getDOY();364
+var historic_url = DamCounts_02-29-2024.csv
+var chinook_url = ChinookDamCounts_02-29-2024.csv
+var current_url = httpwww.cbr.washington.edudartcsphprptadult_basin_sum.phpsc=1&outputFormat=csv&year= + year;
+var current_url = httpwww.onefishtwofish.netDartDamCounts.jsphttpwww.cbr.washington.edudartcsphprptadult_basin_sum.phpsc=1&outputFormat=csv&year= + year;
+var mean_url = 10YrMeans10YrMeanDay + doy + .csv;
+
+var formatDate = d3.time.format(%m-%d-%Y)
+params.date = now;
+params.fdate = formatDate(now);
+params.doy = doy;
+params.year = year;
+params.formatDate = formatDate;
+
+
+
+
+script
+script
+$(.checkbox-dropdown).click(function () {
+    $(this).toggleClass(is-active);
+});
+
+$(.checkbox-dropdown ul).click(function(e) {
+    e.stopPropagation();
+});
+
+$(.checkbox-dropdown2).click(function () {
+	console.log(yo)
+    $(this).toggleClass(is-active);
+});
+
+$(.checkbox-dropdown2 ul).click(function(e) {
+    e.stopPropagation();
+});
+
+function plotComparisons(){
+	new ForecastComparison({targetschinook_svg,data params.data}).plotComparison({speciesChinook, runSpring})
+	new ForecastComparison({targetsmchinook_svg,data params.data}).plotComparison({speciesChinook, runSummer})
+	new ForecastComparison({targetfchinook_svg,data params.data}).plotComparison({speciesChinook, runFall})
+	new ForecastComparison({targetsteelhead_svg,data params.data}).plotComparison({speciesSteelhead, runSummer})
+	new ForecastComparison({targetwsteelhead_svg,data params.data}).plotComparison({speciesSteelhead, runSummer, rtype wild})
+}
+
+d3.csv(JointStaffRunForecastRevised_07-08-2024.csv, function (data) {
+	d3.select(#spinner).style('visibility','hidden');
+	var maxvalue=0;
+	data.forEach(function(d){
+		d.Forecast = +d.JSR_forecast_table2;
+		d.Counts = +d.DART_BON_count;
+		d.Actual = +d.JSR_actual_table2
+		d.Harvest = d.Actual  0  d.Actual - d.Counts  0;
+		if(d.Forecastmaxvalue)maxvalue=d.Forecast;
+		if(d.Actualmaxvalue)maxvalue=d.Actual;
+		d.Year = +d.year;
+	});
+	params.data = data;
+	plotComparisons();
+	d3.select(#showCounts).on(click,function(){
+		params.showCounts = this.checked;
+		plotComparisons();
+	})
+	d3.select(#showHarvest).on(click,function(){
+		params.showHarvest = this.checked;
+		plotComparisons();
+	})	
+	d3.select(#showArrow).on(click,function(){
+		params.showArrow = this.checked;
+		plotComparisons();
+	})
+	d3.select(#showForecast).on(click,function(){
+		params.showForecast = this.checked;
+		plotComparisons();
+	})
+	d3.selectAll(.showValueText).on(click,function(){
+		params.showValueText = this.value;
+		plotComparisons();
+	})	
+	d3.selectAll(.legend)
+		.append(img).attr(src,Daily_Legend_Forecast.jpg)
+})
+
+
+
+var writeCSV = function(datarows, filename){
+from httpsstackoverflow.comquestions14964035how-to-export-javascript-array-info-to-csv-on-client-side
+const rows = [[name1, city1, some other info], [name2, city2, more info]];
+let csvContent = datatextcsv;charset=utf-8,;
+datarows.forEach(function(rowArray){
+   let row = rowArray.join(,);
+   csvContent += row + rn;
+});
+
+var encodedUri = encodeURI(csvContent);
+var link = document.createElement(a);
+link.setAttribute(href, encodedUri);
+link.setAttribute(download, filename);
+document.body.appendChild(link);  Required for FF
+
+link.click();  This will download the data file named my_data.csv.
+
+}
+
+var rundates = 
+[
+  {
+    proj BON,
+    run Spring,
+    startmonth 3,
+    startday 15,
+    endmonth 5,
+    endday 31
+  },
+  {
+    proj TDA,
+    run Spring,
+    startmonth 4,
+    startday 1,
+    endmonth 6,
+    endday 3
+  },
+  {
+    proj JDA,
+    run Spring,
+    startmonth 4,
+    startday 1,
+    endmonth 6,
+    endday 5
+  },
+  {
+    proj MCN,
+    run Spring,
+    startmonth 4,
+    startday 1,
+    endmonth 6,
+    endday 8
+  },
+  {
+    proj PRO,
+    run Spring,
+    startmonth 3,
+    startday 1,
+    endmonth 8,
+    endday 15
+  },
+  {
+    proj ROZ,
+    run Spring,
+    startmonth 1,
+    startday 1,
+    endmonth 12,
+    endday 31
+  },
+  {
+    proj IHR,
+    run Spring,
+    startmonth 4,
+    startday 1,
+    endmonth 6,
+    endday 11
+  },
+  {
+    proj LMN,
+    run Spring,
+    startmonth 4,
+    startday 1,
+    endmonth 6,
+    endday 13
+  },
+  {
+    proj LGS,
+    run Spring,
+    startmonth 4,
+    startday 15,
+    endmonth 6,
+    endday 15
+  },
+  {
+    proj LWG,
+    run Spring,
+    startmonth 3,
+    startday 1,
+    endmonth 6,
+    endday 17
+  },
+  {
+    proj PRD,
+    run Spring,
+    startmonth 4,
+    startday 15,
+    endmonth 6,
+    endday 13
+  },
+  {
+    proj RIS,
+    run Spring,
+    startmonth 4,
+    startday 14,
+    endmonth 6,
+    endday 17
+  },
+  {
+    proj RRH,
+    run Spring,
+    startmonth 4,
+    startday 16,
+    endmonth 6,
+    endday 19
+  },
+  {
+    proj TUM,
+    run Spring,
+    startmonth 4,
+    startday 14,
+    endmonth 6,
+    endday 17
+  },
+  {
+    proj WEL,
+    run Spring,
+    startmonth 5,
+    startday 1,
+    endmonth 6,
+    endday 28
+  },
+  {
+    proj ZOS,
+    run Spring,
+    startmonth 5,
+    startday 1,
+    endmonth 6,
+    endday 28
+  },
+  {
+    proj WAN,
+    run Spring,
+    startmonth 4,
+    startday 15,
+    endmonth 6,
+    endday 13
+  },
+  {
+    proj WFF,
+    run Spring,
+    startmonth 1,
+    startday 1,
+    endmonth 8,
+    endday 15
+  },
+  {
+    proj BON,
+    run Summer,
+    startmonth 6,
+    startday 1,
+    endmonth 7,
+    endday 31
+  },
+  {
+    proj TDA,
+    run Summer,
+    startmonth 6,
+    startday 4,
+    endmonth 8,
+    endday 3
+  },
+  {
+    proj JDA,
+    run Summer,
+    startmonth 6,
+    startday 6,
+    endmonth 8,
+    endday 5
+  },
+  {
+    proj MCN,
+    run Summer,
+    startmonth 6,
+    startday 9,
+    endmonth 8,
+    endday 8
+  },
+  {
+    proj IHR,
+    run Summer,
+    startmonth 6,
+    startday 12,
+    endmonth 8,
+    endday 11
+  },
+  {
+    proj LMN,
+    run Summer,
+    startmonth 6,
+    startday 14,
+    endmonth 8,
+    endday 13
+  },
+  {
+    proj LGS,
+    run Summer,
+    startmonth 6,
+    startday 16,
+    endmonth 8,
+    endday 15
+  },
+  {
+    proj LWG,
+    run Summer,
+    startmonth 6,
+    startday 18,
+    endmonth 8,
+    endday 17
+  },
+  {
+    proj PRD,
+    run Summer,
+    startmonth 6,
+    startday 14,
+    endmonth 8,
+    endday 13
+  },
+  {
+    proj RIS,
+    run Summer,
+    startmonth 6,
+    startday 18,
+    endmonth 8,
+    endday 17
+  },
+  {
+    proj RRH,
+    run Summer,
+    startmonth 6,
+    startday 20,
+    endmonth 8,
+    endday 19
+  },
+  {
+    proj TUM,
+    run Summer,
+    startmonth 6,
+    startday 18,
+    endmonth 8,
+    endday 17
+  },
+  {
+    proj WEL,
+    run Summer,
+    startmonth 6,
+    startday 29,
+    endmonth 8,
+    endday 28
+  },
+  {
+    proj ZOS,
+    run Summer,
+    startmonth 6,
+    startday 29,
+    endmonth 8,
+    endday 28
+  },
+  {
+    proj WAN,
+    run Summer,
+    startmonth 6,
+    startday 14,
+    endmonth 8,
+    endday 13
+  },
+  {
+    proj BON,
+    run Fall,
+    startmonth 8,
+    startday 1,
+    endmonth 11,
+    endday 15
+  },
+  {
+    proj TDA,
+    run Fall,
+    startmonth 8,
+    startday 4,
+    endmonth 10,
+    endday 31
+  },
+  {
+    proj JDA,
+    run Fall,
+    startmonth 8,
+    startday 6,
+    endmonth 10,
+    endday 31
+  },
+  {
+    proj MCN,
+    run Fall,
+    startmonth 8,
+    startday 9,
+    endmonth 10,
+    endday 31
+  },
+  {
+    proj PRO,
+    run Fall,
+    startmonth 8,
+    startday 16,
+    endmonth 12,
+    endday 29
+  },
+  {
+    proj IHR,
+    run Fall,
+    startmonth 8,
+    startday 12,
+    endmonth 12,
+    endday 15
+  },
+  {
+    proj LMN,
+    run Fall,
+    startmonth 8,
+    startday 14,
+    endmonth 10,
+    endday 31
+  },
+  {
+    proj LGS,
+    run Fall,
+    startmonth 8,
+    startday 16,
+    endmonth 10,
+    endday 31
+  },
+  {
+    proj LWG,
+    run Fall,
+    startmonth 8,
+    startday 18,
+    endmonth 12,
+    endday 15
+  },
+  {
+    proj PRD,
+    run Fall,
+    startmonth 8,
+    startday 14,
+    endmonth 11,
+    endday 15
+  },
+  {
+    proj RIS,
+    run Fall,
+    startmonth 8,
+    startday 18,
+    endmonth 11,
+    endday 14
+  },
+  {
+    proj RRH,
+    run Fall,
+    startmonth 8,
+    startday 20,
+    endmonth 11,
+    endday 14
+  },
+  {
+    proj TUM,
+    run Fall,
+    startmonth 8,
+    startday 18,
+    endmonth 11,
+    endday 14
+  },
+  {
+    proj WEL,
+    run Fall,
+    startmonth 8,
+    startday 29,
+    endmonth 11,
+    endday 15
+  },
+  {
+    proj ZOS,
+    run Fall,
+    startmonth 8,
+    startday 29,
+    endmonth 11,
+    endday 15
+  },
+  {
+    proj WAN,
+    run Fall,
+    startmonth 8,
+    startday 14,
+    endmonth 11,
+    endday 15
+  },
+  {
+    proj WFF,
+    run Fall,
+    startmonth 8,
+    startday 16,
+    endmonth 12,
+    endday 31
+  }
+]
+
+params.rundates = {};
+rundates.forEach(function(d){
+	if(!params.rundates[d.proj])params.rundates[d.proj] = {}
+	params.rundates[d.proj][d.run] = {startmonth d.startmonth, startday d.startday, endmonth d.endmonth, endday d.endday}
+})
+script
+script
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]function(){
+  (i[r].q=i[r].q[]).push(arguments)},i[r].l=1new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','www.google-analytics.comanalytics.js','ga');
+
+  ga('create', 'UA-18774702-1', 'auto');
+  ga('send', 'pageview');
+
+script
+html
