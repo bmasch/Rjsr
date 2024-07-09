@@ -21,6 +21,8 @@ report.choices <- c(
     "2024 Spring Table5",
     "2023 Spring Table2",
     "2022 Spring Table2",
+    "2024 Fall Table3",
+    "2024 Fall Table5",
     "2023 Fall Table3",
     "2022 Fall Table5",
     "2022 Fall Table6"
